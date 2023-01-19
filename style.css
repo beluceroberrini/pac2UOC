@@ -1,0 +1,21 @@
+h1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: underline rgb(196, 85, 188);
+}
+
+button{
+    font-size: 15px;
+    margin: 20px;
+    padding: 8px 15px;
+    border-style: none;
+    background-color: violet;
+    border-radius: 5px;
+}
+
+button:hover{
+    background-color: violet;
+    box-shadow: 2px 2px 20px 5px rgba(238,43,226,0.59);
+    transition: 0.8s;
+}
