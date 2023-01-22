@@ -1,22 +1,40 @@
-const button = document.querySelector('#button');
+// let numbers = '';
 
-let miPrompt1;
-let miPrompt2;
+// const btn = document.getElementById('button');
 
-miPrompt1 = prompt('Ingrese un número del 1 al 50');
+// function getNumbers(){
+//     numbers = prompt('Ingrese un número del 1 al 50')
+//     console.log(numbers)
+// }
 
-if (miPrompt1 === null || miPrompt1 > 50 || miPrompt1 < 1 || miPrompt1 === '' || miPrompt1 === NaN) {
-    miPrompt1 = prompt('Ingrese un número válido');
+// btn.addEventListener('click', getNumbers)
+
+
+// let n1 = parseInt(getNumbers);
+
+// if (n1 === null || n1 > 50 || n1 < 1 || n1 === '' || n1 === NaN) {
+//     n1 = prompt('Ingrese un número válido');
+// }
+// let n2 = parseInt(getNumbers);
+
+// if (n2 == null || n2 > 50 || n2 < 1 || n2 === '' || n2 === NaN) {
+//     n2 = prompt('Ingrese un número válido');
+// }
+
+
+
+let n1 = parseInt(prompt('Ingrese un número del 1 al 50'));
+
+if (n1 === null || n1 > 50 || n1 < 1 || n1 === '' || n1 === NaN) {
+    n1 = prompt('Ingrese un número válido');
 }
-miPrompt2 = prompt('Ahora ingrese otro número del 1 al 50');
+let n2 = parseInt(prompt('Ahora ingrese otro número del 1 al 50'));
 
-if (miPrompt2 == null || miPrompt2 > 50 || miPrompt2 < 1 || miPrompt2 === '' || miPrompt2 === NaN) {
-    miPrompt2 = prompt('Ingrese un número válido');
+if (n2 == null || n2 > 50 || n2 < 1 || n2 === '' || n2 === NaN) {
+    n2 = prompt('Ingrese un número válido');
 }
 
-let n1 = parseInt(miPrompt1, 10);
 console.log(n1)
-let n2 = parseInt(miPrompt2, 10);
 console.log(n2)
 
 
@@ -27,6 +45,7 @@ function sum(n1, n2) {
 }
 
 let result = sum(n1, n2);
+console.log(sum(n1, n2))
 
 //PRIMOS
 
@@ -39,6 +58,7 @@ function isPrime(number) {
 }
 
 console.log(isPrime(n1), isPrime(n2))
+
 
 function printPrimos(n1, n2) {
 
@@ -71,26 +91,36 @@ let primos = printPrimos(n1, n2);
 
 function parImpar(number) {
     if (number % 2 === 0) {
-        return `${number} es par`
+        return true
     }
-    return `${number} es impar`
+    return false
 }
 
-function showPares(n1, n2){
- 
+function printPares(n1, n2) {
+
     let resultPares = '';
+    let par1, par2;
 
-    if ((n1) === (n2)){
-        resultPares += parImpar(n1)
-    }else{
-        resultPares += `${parImpar(n1)} y ${parImpar(n2)}`
+    if (!parImpar(n1) && !parImpar(n2)) {
+        resultPares += 'Ninguno es par'
+    } else if (parImpar(n1) &&parImpar(n2)) {
+        resultPares += 'Ambos son pares'
+    } else if (parImpar(n1) ===parImpar(n2)) {
+        resultPares += `${par1}`
     }
 
-    return resultPares
+    par1 = parImpar(n1) ? `${n1} es par` : `${n1} no es par`;
+    par2 = parImpar(n2) ? `${n2} es par` : `${n2} no es par`;
+
+    if (resultPares === '') {
+        resultPares += `${par1} y ${par2}`;
+
+    }
+    return resultPares;
 }
 
-let pares = showPares(n1, n2);
-
+console.log(printPares(n1, n2));
+let pares = printPares(n1, n2);
 
 function showArray() {
 
@@ -119,23 +149,22 @@ function showArray() {
     } else if ((n1) > (n2)) {
         arrayPares += printImpares(n2)
     } else if ((n1) === (n2)) {
-        arrayPares += parImpar(n1)
+        arrayPares += '';
     }
 
     return arrayPares
 
 }
 
-// console.log(showArray(n1, n2));
+console.log(showArray(n1, n2));
 let array = showArray(n1, n2);
 
-alert(`La suma de ambos números es ${result} \n${primos}.\n${pares}\n${array}`);
 
-// la suma es:
-// el n1 es primo y el n2 no es primo
-// el n1 es par y 45 es impar 
-// (numeros asc o desc)
+const button = document.querySelector('#button');
+button.addEventListener('click', function(){
 
+    alert(`La suma de ambos números es ${result} \n${primos}.\n${pares}\n${array}`);
 
+});
 
 
