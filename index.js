@@ -1,42 +1,20 @@
-// let numbers = '';
+let n1, n2;
 
-// const btn = document.getElementById('button');
-
-// function getNumbers(){
-//     numbers = prompt('Ingrese un número del 1 al 50')
-//     console.log(numbers)
-// }
-
-// btn.addEventListener('click', getNumbers)
-
-
-// let n1 = parseInt(getNumbers);
-
-// if (n1 === null || n1 > 50 || n1 < 1 || n1 === '' || n1 === NaN) {
-//     n1 = prompt('Ingrese un número válido');
-// }
-// let n2 = parseInt(getNumbers);
-
-// if (n2 == null || n2 > 50 || n2 < 1 || n2 === '' || n2 === NaN) {
-//     n2 = prompt('Ingrese un número válido');
-// }
-
-
-
-let n1 = parseInt(prompt('Ingrese un número del 1 al 50'));
-
-if (n1 === null || n1 > 50 || n1 < 1 || n1 === '' || n1 === NaN) {
-    n1 = prompt('Ingrese un número válido');
+function getNumbers(){
+    n1 = parseInt(prompt('Ingrese un número del 1 al 50'))
+    
+    if (n1 === null || n1 > 50 || n1 < 1 || n1 === '' || n1 === NaN) {
+        n1 = prompt('Ingrese un número válido');
+    }
+    n2 = parseInt(prompt('Ahora ingrese otro número del 1 al 50'));
+    
+    if (n2 == null || n2 > 50 || n2 < 1 || n2 === '' || n2 === NaN) {
+        n2 = prompt('Ingrese un número válido');
+    }
+    
+    console.log(n1, n2)
+    
 }
-let n2 = parseInt(prompt('Ahora ingrese otro número del 1 al 50'));
-
-if (n2 == null || n2 > 50 || n2 < 1 || n2 === '' || n2 === NaN) {
-    n2 = prompt('Ingrese un número válido');
-}
-
-console.log(n1)
-console.log(n2)
-
 
 //SUMA
 
@@ -44,7 +22,7 @@ function sum(n1, n2) {
     return n1 + n2
 }
 
-let result = sum(n1, n2);
+//let result = sum(n1, n2);
 console.log(sum(n1, n2))
 
 //PRIMOS
@@ -84,7 +62,7 @@ function printPrimos(n1, n2) {
 }
 
 console.log(printPrimos(n1, n2))
-let primos = printPrimos(n1, n2);
+//let primos = printPrimos(n1, n2);
 
 
 //PARES
@@ -120,7 +98,7 @@ function printPares(n1, n2) {
 }
 
 console.log(printPares(n1, n2));
-let pares = printPares(n1, n2);
+//let pares = printPares(n1, n2);
 
 function showArray() {
 
@@ -157,14 +135,21 @@ function showArray() {
 }
 
 console.log(showArray(n1, n2));
-let array = showArray(n1, n2);
+//let array = showArray(n1, n2);
 
+function finalResult(){
+    getNumbers()
 
-const button = document.querySelector('#button');
-button.addEventListener('click', function(){
+    let result = sum(n1, n2);
+    let primos = printPrimos(n1, n2);
+    let pares = printPares(n1, n2);
+    let array = showArray(n1, n2);
 
     alert(`La suma de ambos números es ${result} \n${primos}.\n${pares}\n${array}`);
 
-});
+}
+
+const btn = document.getElementById('button');
+btn.addEventListener('click', finalResult)
 
 
