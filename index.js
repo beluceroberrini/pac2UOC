@@ -2,18 +2,21 @@ let n1, n2;
 
 function getNumbers(){
     n1 = parseInt(prompt('Ingrese un número del 1 al 50'))
-    
-    if (n1 === null || n1 > 50 || n1 < 1 || n1 === '' || n1 === NaN) {
-        n1 = prompt('Ingrese un número válido');
-    }
+    n1 = validation(n1);
     n2 = parseInt(prompt('Ahora ingrese otro número del 1 al 50'));
-    
-    if (n2 == null || n2 > 50 || n2 < 1 || n2 === '' || n2 === NaN) {
-        n2 = prompt('Ingrese un número válido');
-    }
+    n2 = validation(n2);
     
     console.log(n1, n2)
     
+}
+
+function validation(number){
+
+    if (number === null || number > 50 || number < 1 || number === ' ' || number === isNaN) {
+        number = prompt('Ingrese un número válido');
+        return number
+    }
+    return number
 }
 
 //SUMA
@@ -123,11 +126,11 @@ function showArray() {
     }
 
     if ((n1) < (n2)) {
-        arrayPares += printPares(n2)
+        printPares(n2)
     } else if ((n1) > (n2)) {
-        arrayPares += printImpares(n2)
+        printImpares(n2)
     } else if ((n1) === (n2)) {
-        arrayPares += '';
+        arrayPares += n1;
     }
 
     return arrayPares
